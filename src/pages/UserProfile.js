@@ -105,24 +105,17 @@ export default function UserProfile() {
         <Box component={Paper}>
           {posts && posts.length > 0 ? (
             <Box>
-              <Grid container spacing={2}>
-                {posts.map(
-                  (post) =>
-                    post.announcement && (
-                      <Grid item xs={12} key={post._id}>
-                        <PostCard post={post} />
-                      </Grid>
-                    )
-                )}
-                {posts.map(
-                  (post) =>
-                    !post.announcement && (
-                      <Grid item xs={12} key={post._id}>
-                        <PostCard post={post} />
-                      </Grid>
-                    )
-                )}
-              </Grid>
+              {posts.map(
+                (post) =>
+                  post.announcement && (
+                    <Grid item xs={12} key={post._id}>
+                      <PostCard post={post} />
+                    </Grid>
+                  )
+              )}
+              {posts.map(
+                (post) => !post.announcement && <PostCard post={post} />
+              )}
             </Box>
           ) : (
             <Box sx={{ p: 3, mt: 5 }}>
